@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.4.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>ma.example.demo</groupId>
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<java.version>1.8</java.version>
+		<swagger.version>3.0.0</swagger.version>
+		<keycloak.version>10.0.2</keycloak.version>
+		<springcloud.version>Hoxton.SR4</springcloud.version>
+		<commons-collection.version>4.4</commons-collection.version>
+		<mapstruct.version>1.4.1.Final</mapstruct.version>
+		<lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+		<guava.version>30.1-jre</guava.version>
+		<sdk-api-core.version>1.4.31</sdk-api-core.version>
+		<mdes-customer-service.version>2.0.8</mdes-customer-service.version>
+		<super-csv.version>2.3.0</super-csv.version>
+		<data-segregation.version>0.0.1-SNAPSHOT</data-segregation.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
+		<sonar.coverage.minimum>0.0</sonar.coverage.minimum>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- This dependency is used for Java Bean Validation with Hibernate Validator. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!-- This dependency is used for Spring Boot's Actuator that provides production-ready features to help you monitor and manage your application. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- This dependency is used for a declarative REST client for Spring Boot apps. -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<!-- This dependency is used for Spring Data JPA with Hibernate. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+
+		<!-- This dependency is used to connect Java application with the MySQL database. -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- The Keycloak Spring Boot adapter capitalizes on Spring Boot’s auto-configuration. -->
+		<!-- <dependency>
+             <groupId>org.keycloak</groupId>
+             <artifactId>keycloak-spring-boot-starter</artifactId>
+         </dependency>-->
+
+		<!-- Hibernate Metamodel Generator is used for automating the generation of the static metamodel classes needed for typesafe Criteria queries as defined by JPA 2. -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+
+		<!-- This dependency is used to design and document your APIs at scale. -->
+		<!-- <dependency>
+             <groupId>io.springfox</groupId>
+             <artifactId>springfox-boot-starter</artifactId>
+             <version>${swagger.version}</version>
+         </dependency>-->
+
+		<!-- This dependency is used to test the data access layer without using a remote DBMS -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- This dependency can be used to convert Java Objects into their JSON representation. -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+		<!-- Lombok acts as an annotation processor that “adds” code to your classes at compile time. -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Mapstruct can generate bean mapper classes automatically. -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+
+		<!-- This dependency is used for to make collection handling easy. It provides many new interfaces, implementations and utilities. -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${commons-collection.version}</version>
+		</dependency>
+
+		<!-- Multimap is a collection that maps keys to values, similar to java.util.Map, but in which each key may be associated with multiple values. -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+
+
+		<!-- This dependency is used to greatly enhance the interconnectivity of systems and processes within an enterprise architecture. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-integration</artifactId>
+		</dependency>
+	</dependencies>
+
+	<!-- dependencies Management -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${springcloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,17 @@
+cors:
+  allowedAdresses: ${CORS_ALLOWED_ADDRESSES:http://localhost:8082, http://localhost:8081,http://localhost:8084}
+server:
+  port: 9091
+simple-microservice:
+  name: simple-service
+  api-url: http://localhost:3000
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${PROCESSING_MYSQL_HOST:127.0.0.1}:3306/${PROCESSING_MYSQL_DB:test_db}?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: ${PROCESSING_MYSQL_USER:root}
+    password: ${PROCESSING_MYSQL_PASSWORD:}
